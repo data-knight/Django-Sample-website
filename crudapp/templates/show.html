@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Students Records</title>  
+     {% load static %}  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style> 
+#grad {
+  background-image: linear-gradient(rgb(223, 111, 111), rgb(181, 228, 216), blue);
+}
+</style>
+</head>  
+<body>  
+    <div class="grad">
+    
+
+<table class="table table-hover table-borderless table-sm">  
+    <thead class="table-primary">
+        <tr>  
+        <th>Students ID</th>  
+        <th> Name</th>  
+        <th> Email</th>  
+        <th> Marks</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for student in students %}  
+    <tr>  
+        <td>{{ student.id }}</td>  
+        <td>{{ student.name }}</td>  
+        <td>{{ student.email }}</td>  
+        <td>{{ student.marks }}</td>  
+        <td>  
+            <a class="btn btn-outline-warning" href="/edit/{{student.id}}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a class="btn btn-outline-danger" href="/delete/{{student.id}}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+    <center><a href="/studs" class="btn btn-primary">Add New Record</a></center>  
+</div>
+</body>  
+</html>  
